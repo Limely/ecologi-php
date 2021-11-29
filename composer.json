@@ -1,5 +1,5 @@
 {
-    "name": "owenvoke/ecologi",
+    "name": "limelyltd/ecologi",
     "type": "library",
     "description": "An object oriented PHP wrapper for the Ecologi API",
     "license": "MIT",
