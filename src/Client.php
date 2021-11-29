@@ -24,7 +24,7 @@ use Psr\Http\Client\ClientInterface;
  * @method Api\Reporting report()
  * @method Api\Reporting reporting()
  */
-final class Client
+class Client
 {
     public const AUTH_ACCESS_TOKEN = 'access_token_header';
 
@@ -35,7 +35,7 @@ final class Client
         $this->httpClientBuilder = $builder = $httpClientBuilder ?? new Builder();
 
         $builder->addPlugin(new RedirectPlugin());
-        $builder->addPlugin(new AddHostPlugin(Psr17FactoryDiscovery::findUriFactory()->createUri('https://public.ecologi.com')));
+        $builder->addPlugin(new AddHostPlugin((new \Http\Factory\Guzzle\UriFactory)->createUri('https://public.ecologi.com')));
         $builder->addPlugin(new HeaderDefaultsPlugin([
             'User-Agent' => 'ecologi-php (https://github.com/owenvoke/ecologi-php)',
         ]));
